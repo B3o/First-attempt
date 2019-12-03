@@ -1,6 +1,7 @@
 package testjdbc;
 
 import entity.User;
+import util.MyDBUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -88,6 +89,15 @@ public class UserDemo {
             System.out.println(user.toString());
         }
     }
+    public static int deleteUser(int id) {
+        int result = -1;
+        try {
+            result = MyDBUtil.update("delete from users where id = ?", id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     /**
      * 通过jdbc 删除某个用户
@@ -103,7 +113,7 @@ public class UserDemo {
             System.out.println("删除失败");
         }
     }
-    public static int deleteUser(Integer id) {
+ /*   public static int deleteUser(Integer id) {
         Connection conn = null;
 //        Statement state = null;
         PreparedStatement pstmt = null;
@@ -161,5 +171,6 @@ public class UserDemo {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
+
 }

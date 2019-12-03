@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -17,6 +18,7 @@ public class MyDBUtil {
     private static String password;
     private static String driver;
     private static Connection conn;
+    static PreparedStatement pstmt = null;
     static {
         InputStream is = ClassLoader.getSystemResourceAsStream("config/jdbc.properties");
         Properties properties = new Properties();
@@ -47,5 +49,24 @@ public class MyDBUtil {
                 }
             }
         }
+    }
+
+    /**
+     * 增 删 改 通用方法(只有sql和参数  可以通过参数传递不同sql和参数)
+     * @return
+     */
+    public static int update(String sql, Object ... o) throws SQLException {//后期参数的顺序一定要跟?的顺序一致
+        conn = getConn();
+        pstmt = conn.prepareStatement(sql);
+//        如果有参数需要处理
+        if (o != null) {
+            for (int i = 0; i < o.length; ++i) {
+                //通过传入的参数给?赋值  由于之前顺序固定,所以传值顺序和参数的顺序是一致的
+                pstmt.setObject((i + 1), o[i]);
+            }
+        }
+        int result = pstmt.executeUpdate();
+        close(pstmt, conn);
+        return result;
     }
 }
