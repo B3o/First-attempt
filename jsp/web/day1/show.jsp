@@ -8,9 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>用户信息展示页面</title>
 </head>
 <body>
-
+    <h1>展示用户登陆:</h1>
+    <%
+        String username = request.getParameter("un");
+        out.print(username);
+    %>
 </body>
 </html>

@@ -6,6 +6,7 @@ package day6;
  */
 public class Customer implements Runnable{
     PublicBox box;
+    int equals;
 
     public Customer(PublicBox box) {
         this.box = box;

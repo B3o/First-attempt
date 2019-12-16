@@ -6,7 +6,6 @@ package day6;
  */
 public class PublicBoxTemp {
     private int pen = 0;
-
     public int getPen() {
         return pen;
     }
@@ -44,6 +43,9 @@ public class PublicBoxTemp {
     }
 
     public static void main(String[] args) {
+
+
+        System.out.println(6 + 6 + "(Result)");
         PublicBox box = new PublicBox();
         Customer customer = new Customer(box);
         Producer producer = new Producer(box);

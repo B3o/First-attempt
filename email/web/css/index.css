@@ -1,0 +1,12 @@
+
+#msg_info {
+    text-align: center;
+    margin-top: 60px;
+    color: #66512c;
+}
+#msg_info p {
+    height: 40px;
+    font-size: 20px;
+    display: inline-block;
+    /*vertical-align: middle;*/
+}

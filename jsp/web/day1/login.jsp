@@ -17,7 +17,7 @@
     enctype = "传值方式" application/x-www-form-urlencoded 默认值 代表传递的值都是String
     multipart/form-data  代表传递的是附件形式--%>
 <%--表单语义化 让表单的元素更有意义--%>
-<form action="" method="">
+<form action="show.jsp" method="get">
     <fieldset style="width: 300px;">
         <legend>登陆</legend>
         <label for="un">用户: </label><input type="text" id = "un"><br>

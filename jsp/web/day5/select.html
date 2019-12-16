@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<select name="" id="">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <!--下拉列表需要默认值-->
+    <option value="0" selected>默认值</option>
+</select>
+<script>
+    $(function () {
+        $("select").change(function () {
+            var count = $(this).val();
+            location.href = '/jsp/show?pageCount=' + count;
+        })
+    })
+</script>
+</body>
+</html>
